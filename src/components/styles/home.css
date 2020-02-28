@@ -1,0 +1,25 @@
+.Badges_font {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  background: url("../../images/stars.svg"), #1b1b25;
+  background-repeat: repeat;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.img_strong {
+  flex-wrap: wrap;
+}
+
+.home_col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .home_col {
+    align-items: flex-start;
+  }
+}

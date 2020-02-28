@@ -1,0 +1,24 @@
+.Badges_buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.center_Image {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.strong {
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  margin-bottom: 0px;
+}
