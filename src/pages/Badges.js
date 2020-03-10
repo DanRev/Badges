@@ -2,21 +2,34 @@ import React from "react";
 import confLogo from "../images/badge-header.svg";
 import "./styles/Badges.css";
 import BadgesList from "../components/BadgesList";
+import PageLoading from "../components/PageLoading";
+import PageError from "../components/PageError";
 import { Link } from "react-router-dom";
 
+import api from "../api";
+
 class Badges extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log("1. constructor()");
-    this.state = {
-      data: {
-        results: []
-      },
-      nextPage: 1
-    };
-  }
+  state = {
+    loading: true,
+    error: null,
+    result: undefined
+  };
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = async () => {
+    this.setState({ loading: true, error: null });
+    try {
+      const data = await api.badges.list();
+      this.setState({ loading: false, result: data });
+    } catch (error) {
+      this.setState({ loading: false, error: error });
+    }
+  };
+
+  /**componentDidMount() {
     this.fetchCharacters();
   }
 
@@ -34,9 +47,17 @@ class Badges extends React.Component {
       },
       nextPage: this.state.nextPage + 1
     });
-  };
+  }; */
 
   render() {
+    if (this.state.loading) {
+      return <PageLoading />;
+    }
+
+    if (this.state.error) {
+      return <PageError error={this.state.error} />;
+    }
+
     return (
       <React.Fragment>
         <div className="Badges">
@@ -58,18 +79,18 @@ class Badges extends React.Component {
           </div>
           <div className="Badges_list">
             <div className="Badges_container">
-              <BadgesList badges={this.state.data.results} />
+              <BadgesList badges={this.state.result} />
             </div>
           </div>
         </div>
-        <div className="Badges_buttons">
+        {/* <div className="Badges_buttons">
           <button
             onClick={() => this.fetchCharacters()}
             className="btn btn-primary"
           >
             Load More
           </button>
-        </div>
+        </div> */}
       </React.Fragment>
     );
   }

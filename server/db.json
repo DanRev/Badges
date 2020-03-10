@@ -440,6 +440,38 @@
       "jobTitle": "Lawyer",
       "twitter": "ckaufmanpr",
       "id": "npaYZKI"
+    },
+    {
+      "firstName": "Daniel",
+      "lastName": "Beltran Gomez",
+      "email": "dbeltrangomez@gmail.com",
+      "jobTitle": "Frontend Engineer",
+      "twitter": "DanielBeltranGo",
+      "id": "lFC1XoP"
+    },
+    {
+      "firstName": "Carlos Andres",
+      "lastName": "Beltran Gomez",
+      "email": "cbeltrangomez@gmail.com",
+      "jobTitle": "FullStack Engineer",
+      "twitter": "cbeltrangomez",
+      "id": "7T1HRXo"
+    },
+    {
+      "firstName": "Sonia",
+      "lastName": "Gomez Diaz",
+      "email": "sgomezdiaz@gmail.com",
+      "jobTitle": "FullStack Engineer",
+      "twitter": "SoniaGoDiaz",
+      "id": "ZDBkxcC"
+    },
+    {
+      "firstName": "Francisco Jose",
+      "lastName": "Beltran Ossa",
+      "email": "franbeos@gmail.com",
+      "jobTitle": "BUSINESS ADMINISTRATOR",
+      "twitter": "franbeos",
+      "id": "QQEJofc"
     }
   ]
 }
