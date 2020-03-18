@@ -4,6 +4,8 @@ import "./styles/BadgeNew.css";
 import header from "../images/platziconf-logo.svg";
 import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
+import PageLoading from "../components/PageLoading";
+import md5 from "md5";
 import api from "../api";
 
 class BadgeNew extends React.Component {
@@ -13,19 +15,45 @@ class BadgeNew extends React.Component {
       lastName: "",
       email: "",
       jobTitle: "",
-      twitter: ""
-    }
+      twitter: "",
+      avatarUrl: ""
+    },
+    loading: false,
+    error: null
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    this.postData(this.state.form);
+    console.log("Soy form", this.state.form);
+    if (this.checkFields(this.state.form)) {
+      console.log("Faltan Campos por llenar");
+      this.props.history.push("/badges/test");
+    } else {
+      this.postData(this.state.form);
+    }
   };
 
-  postData = badge => {
-    if (api.badges.create(badge)) {
-      console.log("Agregado");
+  postData = async badge => {
+    const email = this.state.form.email;
+    const hash = md5(email);
+    const avatar = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
+    badge.avatarUrl = avatar;
+    this.setState({ loading: true, error: null });
+    console.log(badge);
+
+    try {
+      if (this.checkFields(badge)) {
+        this.setState({ error: true });
+        return;
+      }
+      await api.badges.create(badge);
+
+      this.setState({ loading: false });
       this.eraseDataForm();
+
+      this.props.history.push("/badges");
+    } catch (error) {
+      this.setState({ loading: false, error: error });
     }
   };
 
@@ -41,6 +69,17 @@ class BadgeNew extends React.Component {
     });
   };
 
+  checkFields = badge => {
+    if (
+      badge.firstName === "" ||
+      badge.lastName === "" ||
+      badge.email === "" ||
+      badge.jobTitle === ""
+    ) {
+      return true;
+    }
+  };
+
   handleChange = e => {
     this.setState({
       form: {
@@ -51,6 +90,10 @@ class BadgeNew extends React.Component {
   };
 
   render() {
+    if (this.state.loading) {
+      return <PageLoading />;
+    }
+
     return (
       <React.Fragment>
         <div className="BadgeNew_hero BadgeNew_header">
@@ -65,7 +108,7 @@ class BadgeNew extends React.Component {
                 twitter={this.state.form.twitter || "twitter"}
                 email={this.state.form.email || "EMAIL"}
                 jobTitle={this.state.form.jobTitle || "JOB_TITLE"}
-                avatarUrl="https://s.gravatar.com/avatar/3d78ab53fee9d74393551d12cbc6adef?s=80"
+                avatarUrl={this.state.form.avatarUrl}
               />
             </div>
             <div className="col-6">
@@ -73,6 +116,7 @@ class BadgeNew extends React.Component {
                 onChange={this.handleChange}
                 formValues={this.state.form}
                 onSubmit={this.handleSubmit}
+                error={this.state.error}
               />
             </div>
           </div>
