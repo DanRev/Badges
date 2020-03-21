@@ -447,7 +447,8 @@
       "email": "dbeltrangomez@gmail.com",
       "jobTitle": "Frontend Engineer",
       "twitter": "DanielBeltranGo",
-      "id": "lFC1XoP"
+      "id": "lFC1XoP",
+      "avatarUrl": "https://www.gravatar.com/avatar/3d78ab53fee9d74393551d12cbc6adef?d=identicon"
     },
     {
       "firstName": "Carlos Andres",
@@ -455,7 +456,8 @@
       "email": "cbeltrangomez@gmail.com",
       "jobTitle": "FullStack Engineer",
       "twitter": "cbeltrangomez",
-      "id": "7T1HRXo"
+      "id": "7T1HRXo",
+      "avatarUrl": "https://www.gravatar.com/avatar/dad91c8eafd3a63b0e88dc02404c40ec?d=identicon"
     },
     {
       "firstName": "Sonia",
@@ -576,7 +578,7 @@
       "email": "prueba@email.com",
       "jobTitle": "prueba",
       "twitter": "prueba",
-      "avatarUrl": "",
+      "avatarUrl": "https://www.gravatar.com/avatar/34a05f2f628945938265dcc9412a1c61?d=identicon",
       "id": "vLxq6b-"
     },
     {
@@ -628,8 +630,8 @@
       "firstName": "Daniel",
       "lastName": "Gomez",
       "email": "dbeltrangomez@gmail.com",
-      "jobTitle": "",
-      "twitter": "",
+      "jobTitle": "Frontend Engineer",
+      "twitter": "DanielBeltranGo",
       "avatarUrl": "https://www.gravatar.com/avatar/3d78ab53fee9d74393551d12cbc6adef?d=identicon",
       "id": "Jqr9Gfq"
     },

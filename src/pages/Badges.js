@@ -17,6 +17,8 @@ class Badges extends React.Component {
 
   componentDidMount() {
     this.fetchData();
+
+    setIn;
   }
 
   fetchData = async () => {
