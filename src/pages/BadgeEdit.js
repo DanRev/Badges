@@ -30,7 +30,7 @@ class BadgeEdit extends React.Component {
     this.setState({ loading: true, error: null });
 
     try {
-      const data = await api.badges.read(this.props.match.params.badgeId);
+      const data = await api.badges.read(this.props.idBadge);
 
       this.setState({ loading: false, form: data });
     } catch (error) {
@@ -127,15 +127,17 @@ class BadgeEdit extends React.Component {
                 avatarUrl={this.state.form.avatarUrl}
               />
             </div>
-            <div className="col-6">
-              <BadgeForm
-                title="Edit Attendant"
-                onChange={this.handleChange}
-                formValues={this.state.form}
-                onSubmit={this.handleSubmit}
-                error={this.state.error}
-              />
-            </div>
+            {this.props.visible && (
+              <div className="col-6">
+                <BadgeForm
+                  title="Edit Attendant"
+                  onChange={this.handleChange}
+                  formValues={this.state.form}
+                  onSubmit={this.handleSubmit}
+                  error={this.state.error}
+                />
+              </div>
+            )}
           </div>
         </div>
       </React.Fragment>
