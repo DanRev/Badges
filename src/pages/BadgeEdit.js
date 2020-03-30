@@ -26,12 +26,15 @@ class BadgeEdit extends React.Component {
     this.fetchData();
   }
 
+  getData = () => {
+    return this.state.form;
+  };
+
   fetchData = async e => {
     this.setState({ loading: true, error: null });
 
     try {
-      const data = await api.badges.read(this.props.idBadge);
-
+      const data = await api.badges.read(this.props.match.params.badgeId);
       this.setState({ loading: false, form: data });
     } catch (error) {
       this.setState({ loading: false, error: error });
@@ -112,9 +115,11 @@ class BadgeEdit extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="BadgeEdit_hero BadgeEdit_header">
-          <img className="img-fluid" src={header} alt="logo" />
-        </div>
+        {this.props.visible && (
+          <div className="BadgeEdit_hero BadgeEdit_header">
+            <img className="img-fluid" src={header} alt="logo" />
+          </div>
+        )}
         <div className="container">
           <div className="row">
             <div className="col">
@@ -127,17 +132,15 @@ class BadgeEdit extends React.Component {
                 avatarUrl={this.state.form.avatarUrl}
               />
             </div>
-            {this.props.visible && (
-              <div className="col-6">
-                <BadgeForm
-                  title="Edit Attendant"
-                  onChange={this.handleChange}
-                  formValues={this.state.form}
-                  onSubmit={this.handleSubmit}
-                  error={this.state.error}
-                />
-              </div>
-            )}
+            <div className="col-6">
+              <BadgeForm
+                title="Edit Attendant"
+                onChange={this.handleChange}
+                formValues={this.state.form}
+                onSubmit={this.handleSubmit}
+                error={this.state.error}
+              />
+            </div>
           </div>
         </div>
       </React.Fragment>

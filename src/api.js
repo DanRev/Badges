@@ -18,12 +18,12 @@ async function callApi(endpoint, options = {}) {
   const response = await fetch(url, options);
   const data = await response.json();
 
-  console.log(data);
+  // console.log(data);
 
   return data;
 }
 
-console.log(callApi("/badges"));
+// console.log(callApi("/badges"));
 
 const api = {
   badges: {

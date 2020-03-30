@@ -1,0 +1,47 @@
+.BadgeEdit_hero {
+  width: 100%;
+  padding: 2rem 0;
+  background: url("../../images/stars.svg"), #1b1b25;
+  background-repeat: repeat;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.containerInfo {
+  display: flex;
+}
+
+.infoBadge {
+  flex: 2;
+  display: flex;
+  align-items: center;
+}
+
+.container_details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.containerT {
+  width: 520px;
+  margin-right: 0px;
+  margin-left: 440px;
+}
+
+.btn_actions {
+  margin-right: 440px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.btnI {
+  margin-bottom: 7px;
+  width: 115px;
+}
+
+.img-fluid {
+  max-height: 110px;
+  flex: 3.5;
+}
