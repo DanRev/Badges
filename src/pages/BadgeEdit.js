@@ -115,11 +115,10 @@ class BadgeEdit extends React.Component {
 
     return (
       <React.Fragment>
-        {this.props.visible && (
-          <div className="BadgeEdit_hero BadgeEdit_header">
-            <img className="img-fluid" src={header} alt="logo" />
-          </div>
-        )}
+        <div className="BadgeEdit_hero BadgeEdit_header">
+          <img className="img-fluid" src={header} alt="logo" />
+        </div>
+
         <div className="container">
           <div className="row">
             <div className="col">

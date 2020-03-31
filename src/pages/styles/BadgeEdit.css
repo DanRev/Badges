@@ -15,3 +15,7 @@
 .img-fluid {
   max-height: 110px;
 }
+
+.container {
+  margin-top: 30px;
+}
